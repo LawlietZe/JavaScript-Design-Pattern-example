@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Singleton Pattern Test Page</title>
+<meta charset="utf-8">	
+</head>
+<body>
+<script type="text/javascript">
+	var A = {
+		Util : {
+			util_method1 : function(){
+				alert("this is  a good stuff")
+			},
+			util_method2 : function(){}
+			//..
+		},
+		Tool : {
+			tool_methond1 :function(){},
+			tool_methond2 :function(){},
+			//..
+		},
+		Ajax : {
+			get : function(){},
+			post : function(){}
+			//..
+		},
+		others : {
+			//..
+		}
+		//..
+	}
+
+	A.Util.util_method1();
+	A.Ajax.get();
+
+
+
+//无法修改的静态变量 
+
+
+ var Conf = (function(){
+ 	  //私有变量
+ 	  var conf = {
+ 	  	Max : 100 ,
+ 	  	Min : 1   ,
+ 	  	Count : 1000,
+ 	  }
+ 	  //返回取值器对象
+ 	  return {
+ 	  //取值器方法 
+ 	  get : function(name){
+ 	  	return conf[name] ? conf[name] : null;
+ 	  }
+ 	}
+ })();
+
+
+ var count = Conf.get('Count');
+ console.log(count);
+
+
+
+
+</script>
+</body>
+</html>
