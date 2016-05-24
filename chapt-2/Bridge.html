@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<meta charset="utf-8">
+<style type="text/css">
+#omg{
+	width: 200px;
+	height: 20px;
+	background-color: red;
+	display: block;
+}
+</style>	
+</head>
+<body>
+<span id="omg">登陆</span>
+<script type="text/javascript">
+	function changeColor(dom,color,bg){
+		//设置元素的字体颜色
+		dom.style.color = color;
+		//设置元素的背景颜色
+		dom.style.background = bg;
+	}
+	var spans = document.getElementsByTagName('span');
+	spans[0].onmouseover = function(){
+		changeColor(this,'red','#ddd')
+	}
+	spans[0].onmouseout = function(){
+		changeColor(this,'blue','red')
+	}
+</script>
+</body>
+</html>

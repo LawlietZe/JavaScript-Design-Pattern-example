@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Decorate Pattern Test Page</title>
+<meta charset="utf-8">
+</head>
+<body>
+<form id="tel_input">
+	<label for="tel_input">电话输入框:</label>
+	<input type="text"></input>
+	<div id="tel_warn_text" style="display:inline-block ;">请填写合适的格式</div>
+</form>
+<script type="text/javascript">
+	// 输入框元素
+	var telInput = document.getElementById('tel_input');
+	//输入格式提示文案
+	var telWarnText = document.getElementById('tel_warn_text');
+	//点击输入框显示输入框格式提示方案
+	telInput.onclick = function(){
+		telWarnText.style.display = 'none';
+	}
+
+//////  这是一个奇怪的装修者
+  var decorator = function(input,fn){
+    //获取事件源
+    var input = document.getElementById(input);
+    //若事件源已绑定
+    if (typeof input.onclick === 'function') {
+    	//缓存事件源原有回调函数
+    	var oldClickFn = input.onclick;
+    	//为事件源定义新的事件
+    	input.onclick = function(){
+    		//事件源有回调函数
+    		oldClickFn();
+    		//执行事件源有新增回调函数
+    		fn();	
+    	}
+    	}else{
+    		//事件未绑定事件，直接为事件源添加新回调函数
+    		input.onclick = fn();
+    	}
+    	//dosomething else
+  }
+
+
+</script>
+</body>
+</html>

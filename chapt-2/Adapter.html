@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Adapter Pattern Test Page</title>
+<meta charset="utf-8" >
+<script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>	
+</head>
+<body>
+<script type="text/javascript">
+var arr = ['JavaScript','book','前端编程','8月1日'];
+
+
+function arrToObjAdapter(arr){
+	return {
+		name : arr[0],
+		type : arr[1],
+		title: arr[2],
+		data : arr[3]
+ 	}
+}
+
+var adapterData = arrToObjAdapter(arr);
+console.log(adapterData)  
+</script>
+</body>
+</html>
